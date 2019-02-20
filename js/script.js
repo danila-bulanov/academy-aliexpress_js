@@ -86,20 +86,16 @@ window.addEventListener('DOMContentLoaded', () => {
         })
 
         // сокращение описания продукта
-        function sliceTitle() {
-            titles.forEach(function (item) {
-                if (item.textContent.length < 70) {
-                    return;
-                } else {
-                    const str = item.textContent.slice(0, 70) + '...';
-                    // const str = `${item.textContent.slice(0, 71)}...`;
-                    item.textContent = str;
-                }
-
-            });
-        }
-
-        sliceTitle();
+        function sliceTitle(){
+			titles.forEach(function(item) {
+				item.textContent = item.textContent.trim();
+				if (item.textContent.length > 49) {
+					const str = item.textContent.slice(0, 50) + '...';
+					item.textContent = str;
+				};
+			});
+		};
+		sliceTitle();
 
         // анимация при добавлении товара в корзину
         function showConfirm() {
@@ -155,6 +151,7 @@ window.addEventListener('DOMContentLoaded', () => {
             });
 
         }
+        
     });
 
 });
